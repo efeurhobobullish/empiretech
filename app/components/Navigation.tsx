@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { FiMenu, FiX } from 'react-icons/fi';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,10 +39,10 @@ export default function Navigation() {
             href="/" 
             className="flex items-center space-x-2 group"
           >
-            <div className="w-8 h-8 bg-gradient-to-r from-[#2563EA] to-purple-600 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+            <div className="w-8 h-8 bg-[#2563EA] rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
               <span className="text-white font-bold text-sm">ET</span>
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-[#2563EA] to-purple-600 bg-clip-text text-transparent">
+            <span className="text-xl font-bold text-[#2563EA]">
               Empire Tech
             </span>
           </Link>
@@ -69,18 +70,10 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden flex flex-col space-y-1.5 p-2 group"
+            className="md:hidden p-2 text-gray-600 dark:text-gray-300 hover:text-[#2563EA] transition-colors duration-300"
             aria-label="Toggle menu"
           >
-            <span className={`w-6 h-0.5 bg-gray-600 dark:bg-gray-300 block transition-all duration-300 ${
-              isOpen ? 'rotate-45 translate-y-2' : ''
-            }`} />
-            <span className={`w-6 h-0.5 bg-gray-600 dark:bg-gray-300 block transition-all duration-300 ${
-              isOpen ? 'opacity-0' : 'opacity-100'
-            }`} />
-            <span className={`w-6 h-0.5 bg-gray-600 dark:bg-gray-300 block transition-all duration-300 ${
-              isOpen ? '-rotate-45 -translate-y-2' : ''
-            }`} />
+            {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
         </div>
 
