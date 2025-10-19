@@ -22,6 +22,10 @@
   animation: gradient 4s ease infinite;
 }
 
+.bg-size-200 {
+  background-size: 200% 200%;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
@@ -50,4 +54,14 @@ html {
   ::-webkit-scrollbar-track {
     background: #1e293b;
   }
+}
+
+/* Hide scrollbar for mobile menu */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
