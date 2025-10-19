@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function Home() {
   const containerVariants = {
@@ -116,29 +115,35 @@ export default function Home() {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <motion(Link)
-              href="/projects"
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 rounded-2xl bg-gradient-to-r from-[#2563EA] to-purple-600 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 group"
             >
-              <span>View My Work</span>
-              <motion.span
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+              <Link
+                href="/projects"
+                className="px-8 py-4 rounded-2xl bg-gradient-to-r from-[#2563EA] to-purple-600 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 group"
               >
-                →
-              </motion.span>
-            </motion(Link>
+                <span>View My Work</span>
+                <motion.span
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  →
+                </motion.span>
+              </Link>
+            </motion.div>
 
-            <motion(Link)
-              href="/contact"
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 rounded-2xl border-2 border-[#2563EA] text-[#2563EA] dark:text-white font-semibold hover:bg-[#2563EA] hover:text-white transition-all duration-300"
             >
-              Hire Me
-            </motion(Link>
+              <Link
+                href="/contact"
+                className="px-8 py-4 rounded-2xl border-2 border-[#2563EA] text-[#2563EA] dark:text-white font-semibold hover:bg-[#2563EA] hover:text-white transition-all duration-300"
+              >
+                Hire Me
+              </Link>
+            </motion.div>
           </motion.div>
 
           {/* Scroll Indicator */}
@@ -205,14 +210,17 @@ export default function Home() {
               
               <h3 className="font-bold text-xl mb-3 text-gray-900 dark:text-white">{project.title}</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
-              <motion.a
-                href={project.link}
-                whileHover={{ x: 5 }}
-                className="inline-flex items-center space-x-2 text-[#2563EA] font-semibold"
-              >
-                <span>View Project</span>
-                <span>↗</span>
-              </motion.a>
+              <motion.div whileHover={{ x: 5 }}>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 text-[#2563EA] font-semibold"
+                >
+                  <span>View Project</span>
+                  <span>↗</span>
+                </a>
+              </motion.div>
             </motion.div>
           ))}
         </div>
@@ -223,19 +231,20 @@ export default function Home() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center"
         >
-          <motion(Link)
-            href="/projects"
+          <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center px-8 py-4 rounded-2xl border-2 border-[#2563EA] text-[#2563EA] dark:text-white font-semibold hover:bg-[#2563EA] hover:text-white transition-all duration-300 group"
           >
-            <span>View All Projects</span>
-            <motion.span
-              className="ml-2 group-hover:translate-x-1 transition-transform"
+            <Link
+              href="/projects"
+              className="inline-flex items-center px-8 py-4 rounded-2xl border-2 border-[#2563EA] text-[#2563EA] dark:text-white font-semibold hover:bg-[#2563EA] hover:text-white transition-all duration-300 group"
             >
-              →
-            </motion.span>
-          </motion(Link)
+              <span>View All Projects</span>
+              <span className="ml-2 group-hover:translate-x-1 transition-transform">
+                →
+              </span>
+            </Link>
+          </motion.div>
         </motion.div>
       </motion.section>
 
@@ -256,21 +265,24 @@ export default function Home() {
           <p className="text-xl mb-8 opacity-90">
             Let's collaborate to create something extraordinary together.
           </p>
-          <motion(Link)
-            href="/contact"
+          <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center px-8 py-4 bg-white text-[#2563EA] font-semibold rounded-2xl hover:bg-gray-100 transition-colors group"
           >
-            <span>Get In Touch</span>
-            <motion.span
-              animate={{ x: [0, 5, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="ml-2"
+            <Link
+              href="/contact"
+              className="inline-flex items-center px-8 py-4 bg-white text-[#2563EA] font-semibold rounded-2xl hover:bg-gray-100 transition-colors group"
             >
-              👋
-            </motion.span>
-          </motion(Link)
+              <span>Get In Touch</span>
+              <motion.span
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="ml-2"
+              >
+                👋
+              </motion.span>
+            </Link>
+          </motion.div>
         </motion.div>
       </motion.section>
     </div>
