@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 
 export default function Footer() {
   const socialLinks = [
@@ -21,14 +20,9 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="grid md:grid-cols-3 gap-8">
           {/* Brand */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="space-y-4"
-          >
+          <div className="space-y-4 animate-slide-up">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-[#2563EA] to-purple-600 rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-r from-[#2563EA] to-purple-600 rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-110">
                 <span className="text-white font-bold text-sm">ET</span>
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-[#2563EA] to-purple-600 bg-clip-text text-transparent">
@@ -40,66 +34,49 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (
-                <motion.a
+                <a
                   key={social.name}
                   href={social.url}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-[#2563EA] hover:text-white transition-all duration-300"
+                  className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-[#2563EA] hover:text-white transition-all duration-300 hover:scale-110"
                 >
                   {social.icon}
-                </motion.a>
+                </a>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="space-y-4"
-          >
+          <div className="space-y-4 animate-slide-up delay-100">
             <h3 className="font-semibold text-gray-900 dark:text-white">Quick Links</h3>
             <div className="space-y-2">
               {quickLinks.map((link) => (
-                <motion.div key={link.name} whileHover={{ x: 5 }}>
+                <div key={link.name} className="hover:translate-x-2 transition-transform duration-300">
                   <Link
                     href={link.path}
                     className="text-gray-600 dark:text-gray-400 hover:text-[#2563EA] dark:hover:text-blue-400 transition-colors"
                   >
                     {link.name}
                   </Link>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="space-y-4"
-          >
+          <div className="space-y-4 animate-slide-up delay-200">
             <h3 className="font-semibold text-gray-900 dark:text-white">Get In Touch</h3>
             <div className="space-y-2 text-gray-600 dark:text-gray-400">
-              <p>📍 Lagos, Nigeria</p>
-              <p>✉️ contact@empiretech.dev</p>
-              <p>💬 +234 812 345 6789</p>
+              <p className="hover:text-[#2563EA] transition-colors duration-300">📍 Lagos, Nigeria</p>
+              <p className="hover:text-[#2563EA] transition-colors duration-300">✉️ contact@empiretech.dev</p>
+              <p className="hover:text-[#2563EA] transition-colors duration-300">💬 +234 812 345 6789</p>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Bottom */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="border-t border-gray-200 dark:border-gray-800 mt-8 pt-8 text-center text-gray-500 dark:text-gray-400"
-        >
+        <div className="border-t border-gray-200 dark:border-gray-800 mt-8 pt-8 text-center text-gray-500 dark:text-gray-400 animate-slide-up delay-300">
           <p>© {new Date().getFullYear()} Empire Tech. All rights reserved.</p>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );
