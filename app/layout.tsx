@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body className={`${inter.className} antialiased`}>
         <div className="min-h-screen bg-gradient-to-br from-white to-blue-50 dark:from-[#0f172a] dark:to-[#1e293b]">
           <Navigation />
