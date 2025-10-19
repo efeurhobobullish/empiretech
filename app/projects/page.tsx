@@ -106,4 +106,69 @@ function ProjectCard({ project, compact = false }: { project: any; compact?: boo
     return (
       <div className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-gray-700 p-4 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
         <div className="relative h-40 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 rounded-lg mb-4 overflow-hidden">
-          <div className="absolute inset-
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white font-semibold">
+              View Project
+            </div>
+          </div>
+        </div>
+        <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">{project.title}</h3>
+        <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">{project.description}</p>
+        <div className="flex flex-wrap gap-1 mb-3">
+          {project.tags.slice(0, 3).map((tag: string) => (
+            <span key={tag} className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-xs">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <div className="flex space-x-3">
+          <a href={project.liveUrl} className="text-sm text-[#2563EA] hover:underline">Live Demo</a>
+          <a href={project.githubUrl} className="text-sm text-gray-600 dark:text-gray-400 hover:underline">Code</a>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-700 p-6 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      
+      <div className="relative overflow-hidden rounded-xl mb-6">
+        <div className="w-full h-64 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 rounded-xl flex items-center justify-center">
+          <div className="text-center">
+            <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-[#2563EA] to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+              ET
+            </div>
+            <p className="text-gray-500 dark:text-gray-400">{project.title}</p>
+          </div>
+        </div>
+      </div>
+      
+      <h3 className="font-bold text-2xl mb-3 text-gray-900 dark:text-white">{project.title}</h3>
+      <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">{project.description}</p>
+      <div className="flex flex-wrap gap-2 mb-4">
+        {project.tags.map((tag: string) => (
+          <span key={tag} className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">
+            {tag}
+          </span>
+        ))}
+      </div>
+      <div className="flex space-x-4">
+        <a
+          href={project.liveUrl}
+          className="flex items-center space-x-2 text-[#2563EA] font-semibold hover:text-purple-600 transition-colors group/link"
+        >
+          <span>Live Demo</span>
+          <span className="group-hover/link:translate-x-1 transition-transform">↗</span>
+        </a>
+        <a
+          href={project.githubUrl}
+          className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 font-semibold hover:text-gray-900 dark:hover:text-white transition-colors group/link"
+        >
+          <span>Source Code</span>
+          <span className="group-hover/link:translate-x-1 transition-transform">↗</span>
+        </a>
+      </div>
+    </div>
+  );
+}
