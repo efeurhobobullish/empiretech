@@ -1,11 +1,12 @@
 import Link from 'next/link';
+import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
 
 export default function Footer() {
   const socialLinks = [
-    { name: 'GitHub', url: 'https://github.com/empiretech', icon: '🐙' },
-    { name: 'LinkedIn', url: 'https://linkedin.com/in/empiretech', icon: '💼' },
-    { name: 'Twitter', url: 'https://twitter.com/empiretech', icon: '🐦' },
-    { name: 'Email', url: 'mailto:contact@empiretech.dev', icon: '✉️' },
+    { name: 'GitHub', url: 'https://github.com/empiretech', icon: FiGithub },
+    { name: 'LinkedIn', url: 'https://linkedin.com/in/empiretech', icon: FiLinkedin },
+    { name: 'Twitter', url: 'https://twitter.com/empiretech', icon: FiTwitter },
+    { name: 'Email', url: 'mailto:contact@empiretech.dev', icon: FiMail },
   ];
 
   const quickLinks = [
@@ -22,10 +23,10 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-4 animate-slide-up">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-[#2563EA] to-purple-600 rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-110">
+              <div className="w-8 h-8 bg-[#2563EA] rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-110">
                 <span className="text-white font-bold text-sm">ET</span>
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-[#2563EA] to-purple-600 bg-clip-text text-transparent">
+              <span className="text-xl font-bold text-[#2563EA]">
                 Empire Tech
               </span>
             </div>
@@ -39,7 +40,7 @@ export default function Footer() {
                   href={social.url}
                   className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-[#2563EA] hover:text-white transition-all duration-300 hover:scale-110"
                 >
-                  {social.icon}
+                  <social.icon size={18} />
                 </a>
               ))}
             </div>
@@ -65,10 +66,19 @@ export default function Footer() {
           {/* Contact Info */}
           <div className="space-y-4 animate-slide-up delay-200">
             <h3 className="font-semibold text-gray-900 dark:text-white">Get In Touch</h3>
-            <div className="space-y-2 text-gray-600 dark:text-gray-400">
-              <p className="hover:text-[#2563EA] transition-colors duration-300">📍 Lagos, Nigeria</p>
-              <p className="hover:text-[#2563EA] transition-colors duration-300">✉️ contact@empiretech.dev</p>
-              <p className="hover:text-[#2563EA] transition-colors duration-300">💬 +234 812 345 6789</p>
+            <div className="space-y-3 text-gray-600 dark:text-gray-400">
+              <div className="flex items-center space-x-3 hover:text-[#2563EA] transition-colors duration-300">
+                <FiMapPin size={18} />
+                <span>Lagos, Nigeria</span>
+              </div>
+              <div className="flex items-center space-x-3 hover:text-[#2563EA] transition-colors duration-300">
+                <FiMail size={18} />
+                <span>contact@empiretech.dev</span>
+              </div>
+              <div className="flex items-center space-x-3 hover:text-[#2563EA] transition-colors duration-300">
+                <FiPhone size={18} />
+                <span>+234 812 345 6789</span>
+              </div>
             </div>
           </div>
         </div>
