@@ -32,7 +32,7 @@ export default function Navigation() {
       scale: 0.95,
       transition: {
         duration: 0.2,
-        ease: "easeInOut"
+        ease: "easeInOut" as const
       }
     },
     open: {
@@ -40,7 +40,7 @@ export default function Navigation() {
       scale: 1,
       transition: {
         duration: 0.3,
-        ease: "easeOut"
+        ease: "easeOut" as const
       }
     }
   };
@@ -58,7 +58,7 @@ export default function Navigation() {
       y: 0,
       transition: {
         duration: 0.3,
-        ease: "easeOut"
+        ease: "easeOut" as const
       }
     }
   };
@@ -91,33 +91,33 @@ export default function Navigation() {
           </motion.div>
 
           {/* Desktop Navigation */}
-<div className="hidden md:flex items-center space-x-8">
-  {navItems.map((item) => (
-    <motion.div
-      key={item.name}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      <Link
-        href={item.path}
-        className={`relative px-3 py-2 font-medium transition-colors ${
-          pathname === item.path
-            ? 'text-[#2563EA] dark:text-blue-400'
-            : 'text-gray-600 dark:text-gray-300 hover:text-[#2563EA] dark:hover:text-blue-400'
-        }`}
-      >
-        {item.name}
-        {pathname === item.path && (
-          <motion.div
-            layoutId="navbar-indicator"
-            className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2563EA]"
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          />
-        )}
-      </Link>
-    </motion.div>
-  ))}
-</div>
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <motion.div
+                key={item.name}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  href={item.path}
+                  className={`relative px-3 py-2 font-medium transition-colors ${
+                    pathname === item.path
+                      ? 'text-[#2563EA] dark:text-blue-400'
+                      : 'text-gray-600 dark:text-gray-300 hover:text-[#2563EA] dark:hover:text-blue-400'
+                  }`}
+                >
+                  {item.name}
+                  {pathname === item.path && (
+                    <motion.div
+                      layoutId="navbar-indicator"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2563EA]"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                </Link>
+              </motion.div>
+            ))}
+          </div>
 
           {/* Mobile Menu Button */}
           <motion.button
