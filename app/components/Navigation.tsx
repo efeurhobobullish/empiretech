@@ -26,43 +26,6 @@ export default function Navigation() {
     { name: 'Contact', path: '/contact' },
   ];
 
-  const mobileMenuVariants = {
-    closed: {
-      opacity: 0,
-      scale: 0.95,
-      transition: {
-        duration: 0.2,
-        ease: "easeInOut" as const
-      }
-    },
-    open: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.3,
-        ease: "easeOut" as const
-      }
-    }
-  };
-
-  const itemVariants = {
-    closed: { 
-      opacity: 0, 
-      y: -20,
-      transition: {
-        duration: 0.2
-      }
-    },
-    open: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.3,
-        ease: "easeOut" as const
-      }
-    }
-  };
-
   return (
     <motion.nav 
       initial={{ y: -100 }}
@@ -146,20 +109,18 @@ export default function Navigation() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              variants={mobileMenuVariants}
-              initial="closed"
-              animate="open"
-              exit="closed"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.3 }}
               className="md:hidden absolute top-full left-6 right-6 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden"
             >
-              <motion.div className="py-4">
+              <div className="py-4">
                 {navItems.map((item, index) => (
                   <motion.div
                     key={item.name}
-                    variants={itemVariants}
-                    initial="closed"
-                    animate="open"
-                    exit="closed"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                   >
                     <Link
@@ -175,7 +136,7 @@ export default function Navigation() {
                     </Link>
                   </motion.div>
                 ))}
-              </motion.div>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
