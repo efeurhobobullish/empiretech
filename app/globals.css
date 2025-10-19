@@ -1,32 +1,23 @@
 @import "tailwindcss";
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-  }
-}
-
 @layer utilities {
   @keyframes float-slow {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(1deg); }
+    0%, 100% { 
+      transform: translateY(0px); 
+    }
+    50% { 
+      transform: translateY(-20px); 
+    }
   }
 
-  @keyframes float-slower {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(-1deg); }
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
   }
 
-  @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
 
   @keyframes slide-up {
@@ -55,13 +46,11 @@
     animation: float-slow 8s ease-in-out infinite;
   }
 
-  .animate-float-slower {
-    animation: float-slower 10s ease-in-out infinite;
-  }
-
-  .animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient 4s ease infinite;
+  .animate-typing {
+    animation: typing 3.5s steps(40, end), blink 1s step-end infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid;
   }
 
   .animate-slide-up {
@@ -82,10 +71,6 @@
 
   .delay-300 {
     animation-delay: 300ms;
-  }
-
-  .bg-size-200 {
-    background-size: 200% 200%;
   }
 }
 
@@ -117,4 +102,15 @@ html {
   ::-webkit-scrollbar-track {
     background: #1e293b;
   }
+}
+
+/* Ensure proper layout */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#__next {
+  min-height: 100vh;
 }
