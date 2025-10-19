@@ -2,102 +2,96 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="min-h-screen bg-white dark:bg-[#0f172a] text-gray-900 dark:text-gray-100 transition-colors font-sans">
+      <nav className="flex justify-between items-center p-6 max-w-6xl mx-auto">
+        <h1 className="text-2xl font-bold text-[#2563EA]">Empire Tech</h1>
+      </nav>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+      <section className="flex flex-col items-center text-center py-20 px-6">
+        <h2 className="text-4xl sm:text-5xl font-extrabold">
+          Hi, I’m <span className="text-[#2563EA]">Empire Tech</span>
+        </h2>
+        <p className="mt-4 text-lg max-w-2xl">
+          A Website Developer, Graphics Designer & Bot Developer.
+        </p>
+        <div className="mt-6 flex gap-4">
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#projects"
+            className="px-5 py-2 rounded-xl bg-[#2563EA] text-white hover:opacity-80"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+            View My Work
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:youremail@example.com"
+            className="px-5 py-2 rounded-xl border border-[#2563EA] text-[#2563EA] dark:text-white hover:bg-[#2563EA] hover:text-white"
           >
-            Read our docs
+            Hire Me
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+      </section>
+
+      <section id="projects" className="max-w-6xl mx-auto py-16 px-6">
+        <h3 className="text-2xl font-bold mb-8 text-center">Projects</h3>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="rounded-xl border dark:border-gray-700 p-4 hover:shadow-xl transition">
+            <Image
+              src="/swiftpay.png"
+              alt="SwiftPay Platform"
+              width={500}
+              height={300}
+              className="rounded-lg mb-4"
+            />
+            <h4 className="font-semibold text-lg mb-2">SwiftPay Platform</h4>
+            <p className="text-sm mb-3">
+              A modern payment app with wallet, virtual accounts, and secure transfers.
+            </p>
+            <a
+              href="https://swiftpay.net.ng"
+              target="_blank"
+              className="text-[#2563EA] underline"
+            >
+              View Project
+            </a>
+          </div>
+          <div className="rounded-xl border dark:border-gray-700 p-4 hover:shadow-xl transition">
+            <Image
+              src="/telegram-bot.png"
+              alt="Telegram Bot Suite"
+              width={500}
+              height={300}
+              className="rounded-lg mb-4"
+            />
+            <h4 className="font-semibold text-lg mb-2">Telegram Bot Suite</h4>
+            <p className="text-sm mb-3">
+              Custom automation bots for Telegram & WhatsApp, built for businesses.
+            </p>
+            <a
+              href="https://github.com/yourgithub/telegram-bot"
+              target="_blank"
+              className="text-[#2563EA] underline"
+            >
+              View Project
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-3xl mx-auto py-16 px-6 text-center">
+        <h3 className="text-2xl font-bold mb-4">Get In Touch</h3>
+        <p className="mb-6">
+          Let’s build something great together. Reach out via email or WhatsApp.
+        </p>
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="mailto:youremail@example.com"
+          className="px-6 py-3 rounded-xl bg-[#2563EA] text-white hover:opacity-80"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
+          Say Hello
         </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      <footer className="text-center py-6 text-sm opacity-70">
+        © {new Date().getFullYear()} Empire Tech. All rights reserved.
       </footer>
-    </div>
+    </main>
   );
 }
